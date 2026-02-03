@@ -25,11 +25,11 @@ function App() {
         <CardContent sx={{padding:0}}>
 
            <div style={{display:"flex"}}>
-          <TextField  label="write a city" variant="standard" size='small'sx={{ mb: 2 ,width: "100%",ml:0.5 }} />
-          <Fab aria-label="search" size="small" sx={{ mb: 2, ml: 1,mt:0.6 ,boxShadow:0,width:48,height:40}}>
-            <SearchIcon />
-          </Fab>
-          </div>
+             <TextField  label="write a city" variant="standard" size='small'sx={{ mb: 2 ,width: "100%",ml:0.5 }} />
+             <Fab aria-label="search" size="small" sx={{ mb: 2, ml: 1,mt:0.6 ,boxShadow:0,width:48,height:40}}>
+             <SearchIcon />
+             </Fab>
+           </div>
            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <Typography variant="h6">riad</Typography>
           <Typography variant="h9">11/21/15</Typography>
