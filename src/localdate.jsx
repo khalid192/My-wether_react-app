@@ -8,11 +8,15 @@ export default function Localdate() {
 
 const {weather} = useContext(IPContext)
 
+    const today= new Date();
+    const Month=today.getMonth()+1;
+    const Day=today.getDate();
+    const Year=today.getFullYear();
 
-    const Month=new Date().getMonth()+1;
-    const Day=new Date().getDay()+1;
-    const Year=new Date().getFullYear();
   const date=`${Day} / ${Month} / ${Year}`;
+
+  
+
     
   return (
 
