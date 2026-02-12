@@ -45,7 +45,7 @@ function App() {
 
   const { weather } = useContext(IPContext);
   const iconCode = weather?.weather?.[0]?.icon;
-  console.log(iconCode)
+
 
   const backgroundImages = {
     "01d": P01d,

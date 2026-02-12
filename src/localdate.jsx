@@ -15,8 +15,6 @@ const {weather} = useContext(IPContext)
 
   const date=`${Day} / ${Month} / ${Year}`;
 
-  console.log(weather
-  )
 
     
   return (

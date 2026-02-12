@@ -94,7 +94,8 @@ export default function Card5days() {
               key={item.dt}
               sx={{
                 backgroundColor: "rgba(183, 179, 179, 0.15)",
-                width: "80px",
+                width: {xs:"70px",sm: "80px"},
+                
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
