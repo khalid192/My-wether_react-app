@@ -11,7 +11,7 @@ import Error from "./erorre";
 import Add from "./add";
 import Card5days from "./card5days";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IPContext } from "./context/contextIP.jsx";
 
 
@@ -71,7 +71,7 @@ function App() {
     "50d": P50d,
     "50n": P50n,
 
-    "undefined":undefinedP
+  
   }
 
   const sx={
@@ -82,8 +82,26 @@ function App() {
         height: "100vh" ,
         fontFamily: "Inter, sans-serif",
         width:"100vw",
- 
+  position: "relative", 
+    overflow: "hidden",
       }
+
+
+      const [bgImage, setBgImage] = useState(undefinedP);
+  const [fadeImage, setFadeImage] = useState(undefinedP);
+  const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    const newImage = backgroundImages[iconCode] || undefinedP;
+    if (newImage !== bgImage) {
+      setFadeImage(bgImage); 
+      setBgImage(newImage); 
+      setFade(true);
+
+      const t = setTimeout(() => setFade(false), 600);
+      return () => clearTimeout(t);
+    }
+  }, [iconCode,weather]);
      
 
       const renderContent = () => {
@@ -98,15 +116,24 @@ function App() {
        
       };
       
-  
+    
 
   return (
     <>
        <Box
       sx={sx}
-       style={{backgroundImage: `url(${ iconCode!=undefined?backgroundImages[iconCode]:backgroundImages.undefined})`, backgroundSize: "cover", backgroundPosition: "center",transition: "opacity 0.8s ease-in-out",
-      animation: "fadeIn 0.8s",}}  
     > 
+    <div 
+       style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: fade ? 0 : 1,
+          transition: "opacity 1s",
+          zIndex: 0,
+        }}  ></div>
     
      <Card5days/> 
       

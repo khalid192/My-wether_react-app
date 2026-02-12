@@ -13,7 +13,7 @@ export default function ButtonLung() {
     }
 
   return <>
-      <Button variant="outlined" onClick={Bb} size='small'  style={{color:'#575454',}} startIcon={<AutorenewIcon />}>
+      <Button variant="outlined" onClick={Bb} size='small'  style={{color:'#313030',    borderColor: "#4f4d4d96",}}>
         {lung === "en" ? "ar" : "en"}
       </Button>
 

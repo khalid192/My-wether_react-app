@@ -15,13 +15,14 @@ const {weather} = useContext(IPContext)
 
   const date=`${Day} / ${Month} / ${Year}`;
 
-  
+  console.log(weather
+  )
 
     
   return (
 
      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <Typography variant="h7">{weather?.name||"Location Unknown"}</Typography>
+          <Typography variant="h7">{weather?.sys?.country  ||null} {weather?.name || "Location Unknown"} </Typography>
           <Typography variant="h9">{date}</Typography>
           </div>
   )
