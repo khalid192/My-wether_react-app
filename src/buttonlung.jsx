@@ -7,9 +7,10 @@ import {IPContext} from "./context/contextIP.jsx"
 
 export default function ButtonLung() {
 
-    const {lung,setlung} = useContext(IPContext)
+    const {lung,setlung,} = useContext(IPContext)
     function Bb(){
        setlung(lung === "en" ? "ar" : "en")
+
     }
 
   return <>

@@ -12,8 +12,6 @@ export default function Search() {
     setCity(e.target.value);
   }
 
-  
-  
   function handleClick() {
   
   
