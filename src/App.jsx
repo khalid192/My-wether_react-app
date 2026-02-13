@@ -1,6 +1,9 @@
 
 import { Box, Card, CardContent, } from "@mui/material";
 import './index.css'
+import Snackbar from '@mui/material/Snackbar';
+
+import Alert from '@mui/material/Alert';
 
 import Search from "./search";
 import Localdate from "./localdate";
@@ -43,8 +46,18 @@ import undefinedP from "./background.jsx/undefined.jpg"
 
 function App() {
 
-  const { weather } = useContext(IPContext);
+  const { weather,open, setOpen } = useContext(IPContext);
   const iconCode = weather?.weather?.[0]?.icon;
+
+
+
+
+
+ function handleClose(){
+  setOpen(i=>({...i,open:false}))
+ }
+
+
 
 
   const backgroundImages = {
@@ -97,7 +110,7 @@ function App() {
       setFadeImage(bgImage); 
       setBgImage(newImage); 
       setFade(true);
-
+      
       const t = setTimeout(() => setFade(false), 600);
       return () => clearTimeout(t);
     }
@@ -115,6 +128,8 @@ function App() {
         }
        
       };
+
+
       
     
 
@@ -149,8 +164,16 @@ function App() {
         <div style={{width:'100%',display:'flex',}} ><ButtonLung /></div>
         
       </Card>
-      
     </Box>
+
+      <Snackbar
+        open={open.open}
+        autoHideDuration={1500}
+        onClose={handleClose}
+      >
+     <Alert severity={open.severity}>{open.Title}</Alert>
+      </Snackbar>
+ 
     
     </>
   )

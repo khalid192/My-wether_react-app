@@ -1,3 +1,4 @@
+import { Title } from "@mui/icons-material";
 import { useState,createContext ,useEffect} from "react";
 
 
@@ -39,12 +40,21 @@ export default function IPProvider({children}) {
          .then(data => setWeatherForecast(data));
          
      }, [Address,lung]);
+
+
+
+     //snack bar
+    const [open, setOpen] = useState({open:false,severity:'',Title:''}); 
+
     
 
     return (
     
-    <IPContext.Provider value={{weather, setWeather,setAddress,Address,setlung,lung,temp,weatherForecast,setWeatherForecast}}>
+    <IPContext.Provider value={{open,setOpen,weather, setWeather,setAddress,Address,setlung,lung,temp,weatherForecast,setWeatherForecast}}>
         {children}
     </IPContext.Provider>)
 
   }
+
+
+
