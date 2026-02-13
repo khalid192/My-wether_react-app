@@ -105,7 +105,7 @@ export default function Card5days() {
               <img
                 src={weatherIcone[item.weather[0].icon]}
                 alt="Weather Icon"
-                style={{ width: "50%" }}
+                style={{ width: "50%",height:'auto' }}
               />
               <div
                 style={{
