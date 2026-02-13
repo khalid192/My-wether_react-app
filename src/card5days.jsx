@@ -1,4 +1,4 @@
-import { Box, Card, List } from "@mui/material";
+import { Box, Card, List ,Typography} from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { IPContext } from "./context/contextIP.jsx";
 
@@ -79,9 +79,8 @@ export default function Card5days() {
     backgroundColor: "rgba(182, 240, 241, 0.02)",
     borderRadius: "15px",
     width: "95%",         
-    maxWidth: "450px",    
+    maxWidth: "500px",    
     mx: "auto",        
-    minHeight: { xs: "100px", sm: "100px" }, 
     display: "flex",
     flexDirection:"row",
     justifyContent: "space-around",
@@ -94,9 +93,9 @@ export default function Card5days() {
               key={item.dt}
               sx={{
                 backgroundColor: "rgba(183, 179, 179, 0.15)",
-                width: {xs:"70px",sm: "80px"},
-                
-                height: "100%",
+                width: {xs:"40px",sm: "75px"},
+                p:0.2,
+                height: {xs:"fitContent",sm: "95%"},
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -117,7 +116,7 @@ export default function Card5days() {
                   alignItems: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "14px" }}>
+                <p sx={{ margin: 0, fontSize: "14px" }}>
                   {" "}
                   {new Date(item.dt_txt).toLocaleDateString("en-US", {
                     weekday: "short",
@@ -126,9 +125,16 @@ export default function Card5days() {
                 <p style={{ margin: 0, fontSize: "12px" }}>
                   {item.main.temp}°C
                 </p>
-                <p style={{ margin: 0, fontSize: "10px" }}>
+                <Typography
+                sx={{
+                   m: 0,
+                   fontSize: {
+                    xs: "6px",
+                    sm: "8px",
+                    md: "10px",
+                    lg: "12px"}}}>
                   {item.weather[0].description}
-                </p>
+                </Typography>
               </div>
             </Card>
           ))
