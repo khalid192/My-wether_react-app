@@ -92,7 +92,7 @@ function App() {
         flexDirection: "column",
         justifyContent: "center", 
         alignItems: "center",    
-        height: "100vh" ,
+        height: "100dvh" ,
         fontFamily: "Inter, sans-serif",
         width:"100vw",
   position: "relative", 
