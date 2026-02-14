@@ -46,7 +46,7 @@ export default function IPProvider({children}) {
      //snack bar
     const [open, setOpen] = useState({open:false,severity:'',Title:''}); 
 
-    console.log(weather)
+   
 
     return (
     

@@ -54,7 +54,7 @@ function App() {
 
 
  function handleClose(){
-  setOpen(i=>({...i,open:false}))
+  setOpen(i=>({...i,open:false,Title:"",severity:""}))
  }
 
 

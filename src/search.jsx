@@ -1,19 +1,21 @@
 import TextField from "@mui/material/TextField";
 import Fab from "@mui/material/Fab";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState, useContext,useEffect } from "react";
+import { useState, useContext,useEffect,useRef } from "react";
 import { IPContext } from "./context/contextIP.jsx";
 
 export default function Search() {
   const { setAddress, lung, setOpen, weather } = useContext(IPContext);
   const [city, setCity] = useState("");
+const weatherRef = useRef();
+weatherRef.current = weather.cod;
 
   function handleChange(e) {
     setCity(e.target.value);
   }
 
   function handleClick() {
-  
+    
   
     if (!city.trim()) {
       setOpen((i) => ({
@@ -28,15 +30,24 @@ export default function Search() {
       return;
     }
   
-  
+
     setAddress(city);
     setCity("");
+
+    setTimeout(() => {
+     kes()
+}, 500);
+    
   }
-  
-  useEffect(() => {
+ 
+
+
+
+ function kes() {
+
   if (!weather) return;
 
-  if (weather.cod === "404") {
+  if (weatherRef.current === "404") {
     setOpen((i) => ({
       ...i,
       open: true,
@@ -47,7 +58,7 @@ export default function Search() {
       severity: "error",
     }));
   }
-  if (weather.cod === 200) {
+  if (weatherRef.current === 200) {
     setOpen((i) => ({
       ...i,
       open: true,
@@ -59,7 +70,12 @@ export default function Search() {
     }));
   }
 
-}, [weather]);
+
+ }
+
+
+  
+
 
 
 
